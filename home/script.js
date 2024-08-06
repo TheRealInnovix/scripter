@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutContent = document.getElementById('about-content');
   const soonContent = document.getElementById('soon-content');
 
+  console.log('worksButton:', worksButton);
+  console.log('exploreButton:', exploreButton);
+  console.log('aboutButton:', aboutButton);
+  console.log('soonButton:', soonButton);
+  console.log('worksContent:', worksContent);
+  console.log('aboutContent:', aboutContent);
+  console.log('soonContent:', soonContent);
+
   if (!worksButton || !exploreButton || !aboutButton || !soonButton || !worksContent || !aboutContent || !soonContent) {
     console.error('One or more elements are missing from the DOM.');
     return;
