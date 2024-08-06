@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutContent = document.getElementById('about-content');
   const soonContent = document.getElementById('soon-content');
 
+  if (!worksButton || !exploreButton || !aboutButton || !soonButton || !worksContent || !aboutContent || !soonContent) {
+    console.error('One or more elements are missing from the DOM.');
+    return;
+  }
+
   function handleScroll() {
     const viewportHeight = window.innerHeight;
     const worksContentTop = worksContent.getBoundingClientRect().top;
@@ -16,48 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const soonContentTop = soonContent.getBoundingClientRect().top;
     const soonContentHeight = soonContent.offsetHeight;
 
-    if (worksContentTop < viewportHeight && worksContentTop + worksContentHeight > 0) {
-      worksContent.style.opacity = 1;
-    } else {
-      worksContent.style.opacity = 0;
-    }
+    worksContent.style.opacity = (worksContentTop < viewportHeight && worksContentTop + worksContentHeight > 0) ? 1 : 0;
+    aboutContent.style.opacity = (aboutContentTop < viewportHeight && aboutContentTop + aboutContentHeight > 0) ? 1 : 0;
+    soonContent.style.opacity = (soonContentTop < viewportHeight && soonContentTop + soonContentHeight > 0) ? 1 : 0;
+  }
 
-    if (aboutContentTop < viewportHeight && aboutContentTop + aboutContentHeight > 0) {
-      aboutContent.style.opacity = 1;
-    } else {
-      aboutContent.style.opacity = 0;
-    }
-
-    if (soonContentTop < viewportHeight && soonContentTop + soonContentHeight > 0) {
-      soonContent.style.opacity = 1;
-    } else {
-      soonContent.style.opacity = 0;
+  function scrollToElement(element) {
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   }
 
-  worksButton.addEventListener('click', () => {
-    worksContent.scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-
-  exploreButton.addEventListener('click', () => {
-    worksContent.scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-
-  aboutButton.addEventListener('click', () => {
-    aboutContent.scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-
-  soonButton.addEventListener('click', () => {
-    soonContent.scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
+  worksButton.addEventListener('click', () => scrollToElement(worksContent));
+  exploreButton.addEventListener('click', () => scrollToElement(worksContent));
+  aboutButton.addEventListener('click', () => scrollToElement(aboutContent));
+  soonButton.addEventListener('click', () => scrollToElement(soonContent));
 
   window.addEventListener('scroll', handleScroll);
   handleScroll();
