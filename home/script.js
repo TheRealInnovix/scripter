@@ -7,14 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutContent = document.getElementById('about-content');
   const soonContent = document.getElementById('soon-content');
 
-  console.log('worksButton:', worksButton);
-  console.log('exploreButton:', exploreButton);
-  console.log('aboutButton:', aboutButton);
-  console.log('soonButton:', soonButton);
-  console.log('worksContent:', worksContent);
-  console.log('aboutContent:', aboutContent);
-  console.log('soonContent:', soonContent);
-
   if (!worksButton || !exploreButton || !aboutButton || !soonButton || !worksContent || !aboutContent || !soonContent) {
     console.error('One or more elements are missing from the DOM.');
     return;
@@ -42,11 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  worksButton.addEventListener('click', () => scrollToElement(worksContent));
-  exploreButton.addEventListener('click', () => scrollToElement(worksContent));
-  aboutButton.addEventListener('click', () => scrollToElement(aboutContent));
-  soonButton.addEventListener('click', () => scrollToElement(soonContent));
+  if (worksButton) {
+    worksButton.addEventListener('click', () => scrollToElement(worksContent));
+  }
+
+  if (exploreButton) {
+    exploreButton.addEventListener('click', () => scrollToElement(worksContent));
+  }
+
+  if (aboutButton) {
+    aboutButton.addEventListener('click', () => scrollToElement(aboutContent));
+  }
+
+  if (soonButton) {
+    soonButton.addEventListener('click', () => scrollToElement(soonContent));
+  }
 
   window.addEventListener('scroll', handleScroll);
-  handleScroll();
+  handleScroll(); 
 });
