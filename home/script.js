@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const worksButton = document.getElementById('works-button');
   const exploreButton = document.getElementById('explore-button');
-  const aboutButton = document.getElementById('about-button'); 
-  const soonButton = document.getElementById('soon-button'); 
+  const aboutButton = document.getElementById('about-button');
+  const soonButton = document.getElementById('soon-button');
   const worksContent = document.getElementById('works-content');
   const aboutContent = document.getElementById('about-content');
-  const soonContent = document.getElementById('soon-content'); 
+  const soonContent = document.getElementById('soon-content');
 
   function handleScroll() {
     const viewportHeight = window.innerHeight;
@@ -17,27 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const soonContentHeight = soonContent.offsetHeight;
 
     if (worksContentTop < viewportHeight && worksContentTop + worksContentHeight > 0) {
-      worksContent.classList.add('fade-in');
-      worksContent.classList.remove('fade-out');
+      worksContent.style.opacity = 1;
     } else {
-      worksContent.classList.add('fade-out');
-      worksContent.classList.remove('fade-in');
+      worksContent.style.opacity = 0;
     }
 
     if (aboutContentTop < viewportHeight && aboutContentTop + aboutContentHeight > 0) {
-      aboutContent.classList.add('fade-in');
-      aboutContent.classList.remove('fade-out');
+      aboutContent.style.opacity = 1;
     } else {
-      aboutContent.classList.add('fade-out');
-      aboutContent.classList.remove('fade-in');
+      aboutContent.style.opacity = 0;
     }
 
     if (soonContentTop < viewportHeight && soonContentTop + soonContentHeight > 0) {
-      soonContent.classList.add('fade-in');
-      soonContent.classList.remove('fade-out');
+      soonContent.style.opacity = 1;
     } else {
-      soonContent.classList.add('fade-out');
-      soonContent.classList.remove('fade-in');
+      soonContent.style.opacity = 0;
     }
   }
 
