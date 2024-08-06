@@ -187,16 +187,7 @@ body.no-scroll {
 .works-content {
   padding: 50px;
   text-align: center;
-  opacity: 0;
   transition: opacity 1s ease-out;
-}
-
-.works-content.fade-in {
-  opacity: 1;
-}
-
-.works-content.fade-out {
-  opacity: 0;
 }
 
 .works-heading {
@@ -206,7 +197,6 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
   animation: fadeInFromTop 1.5s ease-out forwards;
   will-change: opacity, transform;
 }
@@ -371,23 +361,13 @@ body.no-scroll {
 .soon-content {
   padding: 50px;
   text-align: center;
-  opacity: 0;
   transition: opacity 1s ease-out;
-}
-
-.soon-content.fade-in {
-  opacity: 1;
-}
-
-.soon-content.fade-out {
-  opacity: 0;
 }
 
 .soon-heading {
   font-size: 35px;
   margin: 0;
   margin-bottom: 20px;
-  opacity: 0;
   animation: fadeInFromTop 1.5s ease-out forwards;
 }
 
